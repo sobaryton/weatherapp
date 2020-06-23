@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Header from "./Components/Header";
+import WeatherList from "./Components/WeatherList";
+import { getWeather } from "./utils/utils";
+import { IForecast } from "./Interfaces/interfaces";
+import "./App.css";
 
-function App() {
+const App = (): JSX.Element => {
+  const [forecast, updateForecast] = useState<IForecast[]>([]);
+
+  React.useEffect((): void => {
+    if (forecast.length === 0) {
+      getWeather(updateForecast);
+    }
+  }, [forecast.length]);
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Header />
       </header>
+      <section>
+        <WeatherList forecast={forecast} />
+      </section>
     </div>
   );
-}
+};
 
 export default App;
