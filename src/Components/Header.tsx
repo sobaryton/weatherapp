@@ -1,22 +1,23 @@
 import React, { useState } from "react";
 import { IPropsHeader } from "../Interfaces/interfaces";
+import { getCurrentWeather } from "../utils/utils";
 
 const Header = (props: IPropsHeader): JSX.Element => {
   const { forecast, onReset } = props;
   const [counter, updateCounter] = useState<number>(60);
   const [time, updateTime] = useState<string>("");
-
-  let tempNow: number = 0;
-  if (forecast.length !== 0) {
-    tempNow = forecast[0].temperature;
-  }
+  const [currentWeather, updateCurrentWeather] = useState(0);
 
   React.useEffect(() => {
+    if (forecast.length === 0) {
+      getCurrentWeather(updateCurrentWeather);
+    }
     const refreshSec = setInterval(() => {
       // Interval every second to refresh the counter and the progressbar
       if (counter === 0) {
         updateCounter(60);
         onReset();
+        getCurrentWeather(updateCurrentWeather);
       } else {
         updateCounter(counter - 1);
       }
@@ -28,7 +29,7 @@ const Header = (props: IPropsHeader): JSX.Element => {
       updateTime(newTime);
     }, 1000);
     return () => clearInterval(refreshSec);
-  }, [counter, onReset]);
+  }, [counter, onReset, forecast.length]);
 
   return (
     <header className="App-header">
@@ -37,7 +38,9 @@ const Header = (props: IPropsHeader): JSX.Element => {
         <div className="time">
           <p>{time}</p>
         </div>
-        <p className="currentTemp">{tempNow === 0 ? "" : tempNow}&#176;</p>
+        <p className="currentTemp">
+          {currentWeather === 0 ? "" : currentWeather}&#176;
+        </p>
       </div>
       <div className="progress-bar">
         <p>Reloading in {counter}s</p>

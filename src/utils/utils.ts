@@ -1,7 +1,7 @@
 /**
  * All functions that manipulate the state
  */
-import { callWeatherAPI } from "./api-calls";
+import { callWeatherAPI, callAPIGetCurrentWeather } from "./api-calls";
 import { IForecast } from "../Interfaces/interfaces";
 
 export const getWeather = async (setForecast): Promise<void> => {
@@ -39,4 +39,11 @@ export const getWeather = async (setForecast): Promise<void> => {
     }
   });
   setForecast(daysWeather);
+};
+
+export const getCurrentWeather = async (
+  updateCurrentWeather
+): Promise<void> => {
+  const res = await callAPIGetCurrentWeather();
+  updateCurrentWeather(Math.floor(res.data.main.temp));
 };

@@ -21,3 +21,13 @@ export const callWeatherAPI = async (): Promise<any> => {
     },
   });
 };
+
+export const callAPIGetCurrentWeather = async (): Promise<any> => {
+  return await api.get(`data/2.5/weather`, {
+    params: {
+      q: "London",
+      appid: userId,
+      units: "metric",
+    },
+  });
+};
