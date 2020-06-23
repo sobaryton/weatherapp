@@ -6,7 +6,13 @@ const WeatherList = (props: { forecast: IForecast[] }): JSX.Element => {
   let dayItems;
   if (props.forecast.length !== 0) {
     dayItems = props.forecast.map((dayForecast, id) => (
-      <WeatherItem forecast={dayForecast} key={id} />
+      <WeatherItem
+        day={dayForecast.day}
+        temperature={dayForecast.temperature}
+        desc={dayForecast.desc}
+        icon={dayForecast.icon}
+        key={id}
+      />
     ));
   } else {
     dayItems = <div className="emptyList"></div>;

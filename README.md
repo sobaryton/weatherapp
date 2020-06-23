@@ -11,5 +11,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## Assumptions
 
-The API returns a list of weather information for 5days every 3 hours.
-I will take the assumption that we the average temp for the day.
+The API returns a list of weather information for 5 days every 3 hours.
+I will display for each day only the weather for the hours between 12pm - 3pm.
+Doing an average on the day won't be so accurate, as during the night the temperature can fall down.

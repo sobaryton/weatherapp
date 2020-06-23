@@ -19,9 +19,7 @@ const App = (): JSX.Element => {
       <header className="App-header">
         <Header />
       </header>
-      <section>
-        <WeatherList forecast={forecast} />
-      </section>
+      <WeatherList forecast={forecast} />
     </div>
   );
 };
