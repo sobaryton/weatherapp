@@ -6,20 +6,23 @@
   align-items: center;
   overflow: hidden;
   width: 70vw;
-  margin-top: 2rem;
   background-color: #282c34;
   padding: 0.3rem;
 }
 
+.App p,
+.App h1 {
+  margin: 0;
+}
+
 .App-header {
-  background-color: rgba(255, 255, 255, 0.2);
-  height: 10vh;
-  width: 100vw;
+  background-color: rgba(255, 255, 255, 0.1);
+  height: 25vh;
+  width: 71vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
 }
 .dayList {
@@ -28,7 +31,8 @@
   justify-content: flex-start;
   align-items: center;
   width: 70vw;
-  height: 90vh;
+  height: 75vh;
+  padding: 0.2rem;
   overflow-y: auto;
   color: white;
   text-transform: uppercase;
@@ -51,8 +55,7 @@
   justify-content: space-around;
   align-items: center;
   width: 40%;
-  font-weight: bold;
-  font-size: 1.1rem;
+  font-size: 1.7rem;
 }
 .itemIcon {
   width: 58%;
@@ -68,4 +71,27 @@
 }
 .itemIcon p {
   margin: 0 0 10px 0;
+}
+.header-desc {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  min-height: 50%;
+}
+.progress-bar {
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  min-height: 40%;
+}
+.bar-wrapper {
+  width: 100%;
+  height: 1.1rem;
+  background-color: rgb(26, 26, 26);
+  align-self: center;
+  border-radius: 1rem;
 }

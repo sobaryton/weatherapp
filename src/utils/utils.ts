@@ -6,6 +6,7 @@ import { IForecast } from "../Interfaces/interfaces";
 
 export const getWeather = async (setForecast): Promise<void> => {
   const res = await callWeatherAPI();
+
   const daysWeather: Array<IForecast> = [];
   const days: Array<string> = [];
   const weekDay: Array<string> = [
@@ -28,7 +29,6 @@ export const getWeather = async (setForecast): Promise<void> => {
       // We check first if we didn't have a value for this day before
       if (!days.includes(dayInTheWeek)) {
         days.push(dayInTheWeek);
-
         daysWeather.push({
           day: dayInTheWeek,
           temperature: Math.floor(day.main.temp),
