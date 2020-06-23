@@ -2,10 +2,10 @@ import React from "react";
 import { IPropsList } from "../Interfaces/interfaces";
 import WeatherItem from "./WeatherItem";
 
-const WeatherList = (props: IPropsList): JSX.Element => {
+const WeatherList = ({ forecast }: IPropsList): JSX.Element => {
   let dayItems;
-  if (props.forecast.length !== 0) {
-    dayItems = props.forecast.map((dayForecast, id) => (
+  if (forecast.length !== 0) {
+    dayItems = forecast.map((dayForecast, id) => (
       <WeatherItem
         day={dayForecast.day}
         temperature={dayForecast.temperature}

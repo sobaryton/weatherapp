@@ -10,8 +10,7 @@ export interface IForecast {
 
 export interface IPropsHeader {
   forecast: IForecast[];
-  counter: number;
-  time: string;
+  onReset: () => void;
 }
 
 export interface IPropsList {

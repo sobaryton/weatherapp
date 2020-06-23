@@ -7,10 +7,8 @@ import "./App.css";
 
 const App = (): JSX.Element => {
   const [forecast, updateForecast] = useState<IForecast[]>([]);
-  const [counter, updateCounter] = useState<number>(0);
-  const [time, updateTime] = useState<string>("test");
 
-  React.useEffect((): void => {
+  React.useEffect(() => {
     if (forecast.length === 0) {
       getWeather(updateForecast);
     }
@@ -18,7 +16,7 @@ const App = (): JSX.Element => {
 
   return (
     <div className="App">
-      <Header forecast={forecast} counter={counter} time={time} />
+      <Header forecast={forecast} onReset={() => getWeather(updateForecast)} />
       <WeatherList forecast={forecast} />
     </div>
   );
