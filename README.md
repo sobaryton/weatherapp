@@ -25,3 +25,7 @@ The project uses this endpoint in order to display the temperature in the header
 
 Every seconds, the counter is decreasing, updating the progress bar. Additionnaly, the clock on top refresh.<br />
 Every minutes, the counter resets to 60s, the progress bar returns to its initial position and the data is fetch from the API for the two endpoints.
+
+## Improvments to do
+
+If I had more time, I will probably add a loading state, the time the app fetches the information from the API and an error notification in case it fails.<br />
