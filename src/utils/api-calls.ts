@@ -12,6 +12,7 @@ const api: any = axios.create({
   },
 });
 
+// Function that calls the API with the end point "forecast"
 export const callWeatherAPI = async (): Promise<any> => {
   return await api.get(`data/2.5/forecast`, {
     params: {
@@ -22,6 +23,7 @@ export const callWeatherAPI = async (): Promise<any> => {
   });
 };
 
+// Function that calls the API with the end point "weather"
 export const callAPIGetCurrentWeather = async (): Promise<any> => {
   return await api.get(`data/2.5/weather`, {
     params: {

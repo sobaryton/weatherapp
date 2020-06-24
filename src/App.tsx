@@ -3,6 +3,7 @@ import Header from "./Components/Header";
 import WeatherList from "./Components/WeatherList";
 import { getWeather } from "./utils/utils";
 import { IForecast } from "./Interfaces/interfaces";
+import "./animations.css";
 import "./App.css";
 
 const App = (): JSX.Element => {

@@ -9,10 +9,12 @@
   background-color: #282c34;
   padding: 0.3rem;
 }
+/****** Shared style ******/
 .App p,
 .App h1 {
   margin: 0;
 }
+/******** Header *******/
 .App-header {
   background-color: rgba(255, 255, 255, 0.1);
   height: 25vh;
@@ -22,55 +24,6 @@
   align-items: center;
   justify-content: center;
   color: white;
-}
-.dayList {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  width: 70vw;
-  height: 75vh;
-  padding: 0.2rem;
-  overflow-y: auto;
-  color: white;
-  text-transform: uppercase;
-}
-.dayItem {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  width: 100%;
-  min-width: 250px;
-  height: auto;
-  background: rgba(255, 255, 255, 0.2);
-  margin: 0.25rem 0;
-  padding: 0.4rem 0;
-  border-radius: 0.5rem;
-}
-.itemWeather {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  width: 40%;
-  font-size: 1.7rem;
-}
-.itemIcon {
-  width: 58%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-end;
-  padding-right: 2%;
-  min-width: 10rem;
-}
-.itemIcon img {
-  margin: 0 0 -0.8rem 0;
-}
-.itemIcon p {
-  margin: 0 0 10px 0;
 }
 .header-desc {
   display: flex;
@@ -85,14 +38,25 @@
 .header-desc .currentTemp {
   width: 25%;
   min-width: 8rem;
+  opacity: 0;
+  transition: 1s all ease;
+  animation-duration: 1s;
+  animation-delay: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-name: slideinTop;
 }
 .header-desc h1 {
   text-align: left;
 }
 .header-desc .currentTemp {
+  height: 3rem;
+}
+.header-desc .currentTemp p {
   text-align: right;
   font-size: 2rem;
 }
+/**** Timer in the header ****/
 .time {
   width: 25%;
   min-width: 5rem;
@@ -104,6 +68,7 @@
   justify-content: center;
   align-items: center;
 }
+/**** Progress Bar ****/
 .progress-bar {
   width: 95%;
   display: flex;
@@ -129,6 +94,69 @@
 .bar-progress {
   background-color: rgb(236, 110, 76);
   height: 1rem;
-  transition: all 500ms ease;
+  transition: all 1s linear;
   border-radius: 1rem;
+}
+/***** List of forecast *****/
+.dayList {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 70vw;
+  height: 75vh;
+  padding: 0.2rem;
+  overflow-y: auto;
+  color: white;
+  text-transform: uppercase;
+}
+.dayItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  min-width: 250px;
+  height: auto;
+  background: rgba(255, 255, 255, 0.2);
+  margin-bottom: 0.25rem;
+  margin-top: 0.25rem;
+  padding: 0.4rem 0;
+  border-radius: 0.5rem;
+  opacity: 0;
+  transition: 1s all ease;
+  animation-duration: 1s;
+  animation-delay: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+.dayItem:nth-child(even) {
+  animation-name: slideinLeft;
+}
+.dayItem:nth-child(odd) {
+  animation-name: slideinRight;
+}
+.itemWeather {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 40%;
+  font-size: 1.7rem;
+}
+.itemIcon {
+  width: 58%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  padding-right: 2%;
+  min-width: 10rem;
+}
+.itemIcon img {
+  margin: 0 0 -0.8rem 0;
+}
+.itemIcon p {
+  margin: 0 0 10px 0;
 }
